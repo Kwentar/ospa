@@ -10,6 +10,6 @@ install:
   - pip install coveralls
 before_script: cd ospa
 script:
-  python -m unittest test_ospa.py
+  coverage run -m unittest test_ospa.py
 after_success:
   - coveralls
