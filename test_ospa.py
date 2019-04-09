@@ -158,14 +158,31 @@ class TestOspaListDir(unittest.TestCase):
                              ])
 
         result = listdir(dummy_folder, full_path=False, only_files=True, walk=True)
-        self.assertEqual(set(result), set(need_results))
+        self.assertEqual(sorted(result), sorted(need_results))
 
     def test_exceptions(self):
+        """
+        Test exceptions for walk and double dot
+        :return:
+        """
         dummy_folder = TestOspaListDir.get_dummy_folder()
         with self.assertRaises(OspaException):
             listdir(dummy_folder, full_path=True, only_files=False, walk=True)
         with self.assertRaises(OspaException):
             listdir('../../..')
+
+    def test_double_dot(self):
+        result = listdir(os.path.join('..', 'ospa', 'dummy_test_folder'), full_path=False)
+        need_result = ['memes',
+                       'txt_files',
+                       'antigravity.png',
+                       'egg.png',
+                       'empty.txt',
+                       'holy_grenade.png',
+                       'spam.jpg',
+                       ]
+
+        self.assertEqual(sorted(result), sorted(need_result))
 
     def test_get_only_names(self):
         """
