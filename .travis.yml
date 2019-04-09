@@ -9,7 +9,6 @@ python:
   - "nightly"  # nightly build
 install:
   - pip install coveralls
-before_script: cd ospa
 script:
   coverage run -m unittest test_ospa.py
 after_success:

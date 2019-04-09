@@ -1,4 +1,5 @@
 import os
+from . import OspaException
 
 
 def get_only_names(file_list: list) -> list:

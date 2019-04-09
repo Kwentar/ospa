@@ -2,6 +2,9 @@ import os
 import unittest
 
 from ospa import listdir, get_only_names
+from ospa import OspaException
+# import ospa
+# print(dir(ospa))
 
 
 class TestOspaListDir(unittest.TestCase):
@@ -15,7 +18,7 @@ class TestOspaListDir(unittest.TestCase):
         Get dummy test folder path
         :return: path to dummy folder
         """
-        dummy_folder = '..{}dummy_test_folder'.format(os.path.sep)
+        dummy_folder = os.path.join(os.getcwd(), 'dummy_test_folder')
         return dummy_folder
 
     def test_main(self):
@@ -34,7 +37,7 @@ class TestOspaListDir(unittest.TestCase):
                        'holy_grenade.png',
                        'spam.jpg',
                        ]
-        need_result = [os.path.join(*(os.path.split(os.getcwd())[:-1]), 'dummy_test_folder', x) for x in need_result]
+        need_result = [os.path.join(dummy_folder, x) for x in need_result]
         self.assertEqual(sorted(need_result), sorted(result))
 
         result = listdir(dummy_folder,
@@ -60,7 +63,7 @@ class TestOspaListDir(unittest.TestCase):
                        'holy_grenade.png',
                        'spam.jpg',
                        ]
-        need_result = [os.path.join(*(os.path.split(os.getcwd())[:-1]), 'dummy_test_folder', x) for x in need_result]
+        need_result = [os.path.join(dummy_folder, x) for x in need_result]
         self.assertEqual(sorted(need_result), sorted(result))
         self.assertEqual(sorted(os.listdir('.')), sorted(listdir(path='.', full_path=False)))
 
@@ -79,8 +82,7 @@ class TestOspaListDir(unittest.TestCase):
         result = listdir(os.path.join(dummy_folder, 'memes'), full_path=False)
         self.assertEqual(sorted(result), sorted(need_result))
 
-        need_result_new = [os.path.join(*(os.path.split(os.getcwd())[:-1]),
-                                        os.path.join('dummy_test_folder', 'memes'), x) for x in need_result]
+        need_result_new = [os.path.join(dummy_folder, 'memes', x) for x in need_result]
         result = listdir(os.path.join(dummy_folder, 'memes'), full_path=True)
         self.assertEqual(sorted(result), sorted(need_result_new))
 
@@ -95,13 +97,11 @@ class TestOspaListDir(unittest.TestCase):
                        'meme4.png',
                        'meme monty python',
                        ]
-        need_result_new = [os.path.join(*(os.path.split(os.getcwd())[:-1]),
-                                        os.path.join('dummy_test_folder', 'memes'), x) for x in need_result[:-1]]
+        need_result_new = [os.path.join(dummy_folder, 'memes', x) for x in need_result[:-1]]
         result = listdir(os.path.join(dummy_folder, 'memes'), only_files=True)
         self.assertEqual(sorted(result), sorted(need_result_new))
 
-        need_result_new = [os.path.join(*(os.path.split(os.getcwd())[:-1]),
-                                        os.path.join('dummy_test_folder', 'memes'), x) for x in need_result]
+        need_result_new = [os.path.join(dummy_folder, 'memes', x) for x in need_result]
         result = listdir(os.path.join(dummy_folder, 'memes'), only_files=False)
         self.assertEqual(sorted(result), sorted(need_result_new))
 
@@ -131,11 +131,8 @@ class TestOspaListDir(unittest.TestCase):
                   ]:
             need_results.append(os.path.join(dummy_folder, i))
 
-        need_result_new = [os.path.join(*(os.path.split(os.getcwd())[:-1]),
-                                        x.replace('..{}'.format(os.path.sep), '')) for x in need_results]
-
         result = listdir(dummy_folder, full_path=True, only_files=True, walk=True)
-        self.assertEqual(sorted(result), sorted(need_result_new))
+        self.assertEqual(sorted(result), sorted(need_results))
 
     def test_walk_not_full(self):
         """
@@ -163,9 +160,12 @@ class TestOspaListDir(unittest.TestCase):
         result = listdir(dummy_folder, full_path=False, only_files=True, walk=True)
         self.assertEqual(set(result), set(need_results))
 
-    # def test_exceptions(self):
-    #     dummy_folder = TestOspaListDir.get_dummy_folder()
-    #     self.assertRaises(OspaException, listdir(dummy_folder, full_path=True, only_files=False, walk=True))
+    def test_exceptions(self):
+        dummy_folder = TestOspaListDir.get_dummy_folder()
+        with self.assertRaises(OspaException):
+            listdir(dummy_folder, full_path=True, only_files=False, walk=True)
+        with self.assertRaises(OspaException):
+            listdir('../../..')
 
     def test_get_only_names(self):
         """
