@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa)
 # ospa
 
 - [x] конвертнуть . и ..
