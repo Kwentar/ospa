@@ -23,4 +23,6 @@
 - [x] функция удаления путей, оставляет только имена
 - [x] добавить walk
 
-<p align="center">[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)</p>
+
+<p align="center"><a href="https://www.python.org/" alt="forthebadge made-with-python">
+        <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" /></a></p>
