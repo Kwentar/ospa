@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa)
+[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa) [![Coverage Status](https://coveralls.io/repos/github/Kwentar/ospa/badge.svg?branch=master)](https://coveralls.io/github/Kwentar/ospa?branch=master)
 # ospa
 
 - [x] конвертнуть . и ..
