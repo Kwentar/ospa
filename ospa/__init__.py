@@ -1,3 +1,3 @@
-from ospa import listdir, _listdir
 from ospa_exception import OspaException
+from ospa import listdir, get_only_names
 
