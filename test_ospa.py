@@ -162,7 +162,7 @@ class TestOspaListDir(unittest.TestCase):
 
     def test_exceptions(self):
         """
-        Test exceptions for walk and double dot
+        Test exceptions
         :return:
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
@@ -170,6 +170,8 @@ class TestOspaListDir(unittest.TestCase):
             listdir(dummy_folder, full_path=True, only_files=False, walk=True)
         with self.assertRaises(OspaException):
             listdir('../../..')
+        with self.assertRaises(OspaException):
+            listdir(extensions='wrong ext')
 
     def test_double_dot(self):
         result = listdir(os.path.join('..', 'ospa', 'dummy_test_folder'), full_path=False)
@@ -210,4 +212,28 @@ class TestOspaListDir(unittest.TestCase):
                              'spam.jpg',
                              ])
         self.assertEqual(sorted(result), sorted(need_results))
+
+    def test_extensions(self):
+        """
+        Test extensions parameter with full path
+        """
+        dummy_folder = TestOspaListDir.get_dummy_folder()
+        need_results = []
+        for i in range(1, 4):
+            need_results.append(os.path.join(dummy_folder, 'memes', 'meme monty python', 'meme{}.jpg'.format(i)))
+        need_results.append(os.path.join(dummy_folder, 'memes', 'meme1.jpg'))
+        need_results.append(os.path.join(dummy_folder, 'memes', 'meme2.png'))
+        need_results.append(os.path.join(dummy_folder, 'memes', 'meme4.jpg'))
+        need_results.append(os.path.join(dummy_folder, 'memes', 'meme4.png'))
+
+        for i in ['antigravity.png',
+                  'egg.png',
+                  'holy_grenade.png',
+                  'spam.jpg',
+                  ]:
+            need_results.append(os.path.join(dummy_folder, i))
+
+        result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions=['jpg', 'png'])
+        self.assertEqual(sorted(result), sorted(need_results))
+
 

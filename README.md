@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa) [![Coverage Status](https://coveralls.io/repos/github/Kwentar/ospa/badge.svg?branch=master)](https://coveralls.io/github/Kwentar/ospa?branch=master)
+[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa) [![Coverage Status](https://coveralls.io/repos/github/Kwentar/ospa/badge.svg?branch=master)](https://coveralls.io/github/Kwentar/ospa?branch=master)[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kwentar/ospa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kwentar/ospa/context:python)
 # ospa
 
  ### todo:
@@ -9,8 +9,7 @@
 
 ### for release:
 - [ ] залить на pypi
-- [ ] добавить фильтр по разрешению файлов в listdir
-- [ ] красивые плашки в репозитории (~~travis ci~~, ~~test coverhance~~, docs, pypi)
+- [ ] красивые плашки в репозитории (~~travis ci~~, ~~test coverhance~~, docs, pypi, ~~code quality~~)
 
 ### done:
 - [x] listdir без параметров
@@ -22,6 +21,7 @@
 - [x] docstrings
 - [x] функция удаления путей, оставляет только имена
 - [x] добавить walk
+- [x] добавить фильтр по разрешению файлов в listdir
 
 
 <p align="center"><a href="https://www.python.org/" alt="forthebadge made-with-python">
