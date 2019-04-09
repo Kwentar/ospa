@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa) [![Coverage Status](https://coveralls.io/repos/github/Kwentar/ospa/badge.svg?branch=master)](https://coveralls.io/github/Kwentar/ospa?branch=master)[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kwentar/ospa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kwentar/ospa/context:python)
+[![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa) 
+[![Coverage Status](https://coveralls.io/repos/github/Kwentar/ospa/badge.svg?branch=master)](https://coveralls.io/github/Kwentar/ospa?branch=master) 
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kwentar/ospa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kwentar/ospa/context:python)
 # ospa
 
  ### todo:
