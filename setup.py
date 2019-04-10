@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
     setuptools.setup(
      name='ospa',
-     version='0.1.0',
+     version='0.0.1',
      author="Aleksei Alekseev",
      author_email="alekseev.yeskela@gmail.com",
      description="OS extension",
