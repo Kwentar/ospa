@@ -26,7 +26,8 @@ class TestOspaListDir(unittest.TestCase):
         dummy_folder = TestOspaListDir.get_dummy_folder()
         result = listdir(dummy_folder,
                          full_path=True,
-                         only_files=False, )
+                         only_files=False,
+                         )
         need_result = ['memes',
                        'txt_files',
                        'antigravity.png',
@@ -40,7 +41,8 @@ class TestOspaListDir(unittest.TestCase):
 
         result = listdir(dummy_folder,
                          full_path=False,
-                         only_files=False, )
+                         only_files=False,
+                         )
         need_result = ['memes',
                        'txt_files',
                        'antigravity.png',
@@ -54,7 +56,8 @@ class TestOspaListDir(unittest.TestCase):
 
         result = listdir(dummy_folder,
                          full_path=True,
-                         only_files=True, )
+                         only_files=True,
+                         )
         need_result = ['antigravity.png',
                        'egg.png',
                        'empty.txt',
