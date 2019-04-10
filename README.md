@@ -3,8 +3,8 @@
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kwentar/ospa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kwentar/ospa/context:python) 
 [![Documentation Status](https://readthedocs.org/projects/ospa/badge/?version=latest)](https://ospa.readthedocs.io/en/latest/?badge=latest)
 
-# ospa
-
+# OSpa
+OSpa is the syntactic sugar for python os package.
  ### todo:
 - [ ] Sugar for specific data, like get_all_images
 - [ ] Template param for file names

@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from ospa import listdir, get_only_names
+from ospa import listdir
 from ospa import OspaException
 # import ospa
 # print(dir(ospa))
@@ -190,8 +190,7 @@ class TestOspaListDir(unittest.TestCase):
         :return:
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
-        param = listdir(dummy_folder, full_path=True, only_files=True, walk=True)
-        result = get_only_names(param)
+        result = listdir(dummy_folder, full_path=False, only_files=True, walk=True)
         need_results = []
         for i in range(1, 4):
             need_results.append('meme{}.jpg'.format(i))

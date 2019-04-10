@@ -3,18 +3,6 @@ import os
 from . import OspaException
 
 
-def get_only_names(file_list: list) -> list:
-    """
-    Remove all from path except file name
-
-    :param file_list: list with files
-    :return: list with file names only
-    """
-    result = (os.path.split(f)[-1] for f in file_list)
-    result = [f for f in result if f]
-    return result
-
-
 def listdir(path='.',
             full_path=True,
             only_files=False,
@@ -25,7 +13,7 @@ def listdir(path='.',
 
     :param path: source path, can be '.' or contains one '..' which means one level top
     :param full_path: if True, return full path of files.
-    :param only_files: if True, return only files without dir (os.path.isfile is used).
+    :param only_files: if True, return only files without dir (os.path.isfile() is used).
     :param walk: Generate the file names in a directory tree by walking the tree top-down, using os.walk().
     :param extensions: list, tuple or set with file extensions.
     :return: files or/and dirs in path
@@ -42,9 +30,10 @@ def listdir(path='.',
             file_list = []
             for root, dirs, files in os.walk(path):
                 for file_ in files:
-                    file_list.append(os.path.join(root, file_))
-            if not full_path:
-                file_list = get_only_names(file_list)
+                    if full_path:
+                        file_list.append(os.path.join(root, file_))
+                    else:
+                        file_list.append(file_)
         else:
             file_list = [x for x in file_list if os.path.isfile(os.path.join(path, x))]
     if full_path and not walk:  # when walk we have full paths already
@@ -52,7 +41,9 @@ def listdir(path='.',
 
     # Extensions filter
     if extensions:
-        if isinstance(extensions, list) or isinstance(extensions, tuple) or isinstance(extensions, set):
+        if isinstance(extensions, list) or \
+                isinstance(extensions, tuple) or \
+                isinstance(extensions, set):
             extensions = list(map(lambda x: x.replace('.', '').lower(), extensions))
             file_list = [f for f in file_list if os.path.splitext(f)[-1][1:].lower() in extensions]
         else:
