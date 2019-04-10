@@ -3,8 +3,6 @@ import unittest
 
 from ospa import listdir
 from ospa import OspaException
-# import ospa
-# print(dir(ospa))
 
 
 class TestOspaListDir(unittest.TestCase):
@@ -71,7 +69,6 @@ class TestOspaListDir(unittest.TestCase):
         """
         Test full_path parameter on inner function
         """
-
         dummy_folder = TestOspaListDir.get_dummy_folder()
         need_result = ['meme1.jpg',
                        'meme2.png',
@@ -110,18 +107,18 @@ class TestOspaListDir(unittest.TestCase):
         Test walk parameter with full path
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
-        need_results = []
+        need_result = []
         for i in range(1, 4):
-            need_results.append(os.path.join(dummy_folder, 'memes', 'meme monty python', 'meme{}.jpg'.format(i)))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme1.jpg'))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme2.png'))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme4.jpg'))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme4.png'))
+            need_result.append(os.path.join(dummy_folder, 'memes', 'meme monty python', 'meme{}.jpg'.format(i)))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme1.jpg'))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme2.png'))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme4.jpg'))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme4.png'))
 
-        need_results.append(os.path.join(dummy_folder, 'txt_files', '1.txt'))
-        need_results.append(os.path.join(dummy_folder, 'txt_files', '2.txt'))
-        need_results.append(os.path.join(dummy_folder, 'txt_files', '3.txt'))
-        need_results.append(os.path.join(dummy_folder, 'txt_files', 'not_txt.not_txt'))
+        need_result.append(os.path.join(dummy_folder, 'txt_files', '1.txt'))
+        need_result.append(os.path.join(dummy_folder, 'txt_files', '2.txt'))
+        need_result.append(os.path.join(dummy_folder, 'txt_files', '3.txt'))
+        need_result.append(os.path.join(dummy_folder, 'txt_files', 'not_txt.not_txt'))
 
         for i in ['antigravity.png',
                   'egg.png',
@@ -129,41 +126,40 @@ class TestOspaListDir(unittest.TestCase):
                   'holy_grenade.png',
                   'spam.jpg',
                   ]:
-            need_results.append(os.path.join(dummy_folder, i))
+            need_result.append(os.path.join(dummy_folder, i))
 
         result = listdir(dummy_folder, full_path=True, only_files=True, walk=True)
-        self.assertEqual(sorted(result), sorted(need_results))
+        self.assertEqual(sorted(result), sorted(need_result))
 
     def test_walk_not_full(self):
         """
         Test walk parameter without full path
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
-        need_results = []
+        need_result = []
         for i in range(1, 4):
-            need_results.append('meme{}.jpg'.format(i))
-        need_results.extend(['meme1.jpg',
-                             'meme2.png',
-                             'meme4.jpg',
-                             'meme4.png',
-                             '1.txt',
-                             '2.txt',
-                             '3.txt',
-                             'not_txt.not_txt',
-                             'antigravity.png',
-                             'egg.png',
-                             'empty.txt',
-                             'holy_grenade.png',
-                             'spam.jpg',
-                             ])
+            need_result.append('meme{}.jpg'.format(i))
+        need_result.extend(['meme1.jpg',
+                            'meme2.png',
+                            'meme4.jpg',
+                            'meme4.png',
+                            '1.txt',
+                            '2.txt',
+                            '3.txt',
+                            'not_txt.not_txt',
+                            'antigravity.png',
+                            'egg.png',
+                            'empty.txt',
+                            'holy_grenade.png',
+                            'spam.jpg',
+                            ])
 
         result = listdir(dummy_folder, full_path=False, only_files=True, walk=True)
-        self.assertEqual(sorted(result), sorted(need_results))
+        self.assertEqual(sorted(result), sorted(need_result))
 
     def test_exceptions(self):
         """
         Test exceptions
-        :return:
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
         with self.assertRaises(OspaException):
@@ -186,55 +182,60 @@ class TestOspaListDir(unittest.TestCase):
 
     def test_get_only_names(self):
         """
-        test function get only names from list of files with full path
-        :return:
+        Test function get only names from list of files with full path
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
         result = listdir(dummy_folder, full_path=False, only_files=True, walk=True)
-        need_results = []
+        need_result = []
         for i in range(1, 4):
-            need_results.append('meme{}.jpg'.format(i))
-        need_results.extend(['meme1.jpg',
-                             'meme2.png',
-                             'meme4.jpg',
-                             'meme4.png',
-                             '1.txt',
-                             '2.txt',
-                             '3.txt',
-                             'not_txt.not_txt',
-                             'antigravity.png',
-                             'egg.png',
-                             'empty.txt',
-                             'holy_grenade.png',
-                             'spam.jpg',
-                             ])
-        self.assertEqual(sorted(result), sorted(need_results))
+            need_result.append('meme{}.jpg'.format(i))
+        need_result.extend(['meme1.jpg',
+                            'meme2.png',
+                            'meme4.jpg',
+                            'meme4.png',
+                            '1.txt',
+                            '2.txt',
+                            '3.txt',
+                            'not_txt.not_txt',
+                            'antigravity.png',
+                            'egg.png',
+                            'empty.txt',
+                            'holy_grenade.png',
+                            'spam.jpg',
+                            ])
+        self.assertEqual(sorted(result), sorted(need_result))
 
     def test_extensions(self):
         """
         Test extensions parameter with full path
         """
         dummy_folder = TestOspaListDir.get_dummy_folder()
-        need_results = []
+        need_result = []
         for i in range(1, 4):
-            need_results.append(os.path.join(dummy_folder, 'memes', 'meme monty python', 'meme{}.jpg'.format(i)))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme1.jpg'))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme2.png'))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme4.jpg'))
-        need_results.append(os.path.join(dummy_folder, 'memes', 'meme4.png'))
+            need_result.append(os.path.join(dummy_folder, 'memes', 'meme monty python', 'meme{}.jpg'.format(i)))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme1.jpg'))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme2.png'))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme4.jpg'))
+        need_result.append(os.path.join(dummy_folder, 'memes', 'meme4.png'))
 
         for i in ['antigravity.png',
                   'egg.png',
                   'holy_grenade.png',
                   'spam.jpg',
                   ]:
-            need_results.append(os.path.join(dummy_folder, i))
+            need_result.append(os.path.join(dummy_folder, i))
 
         result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions=['jpg', 'png'])
-        self.assertEqual(sorted(result), sorted(need_results))
+        self.assertEqual(sorted(result), sorted(need_result))
         result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions=['.jpg', '.png'])
-        self.assertEqual(sorted(result), sorted(need_results))
+        self.assertEqual(sorted(result), sorted(need_result))
         result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions=['.JPG', 'png'])
-        self.assertEqual(sorted(result), sorted(need_results))
+        self.assertEqual(sorted(result), sorted(need_result))
 
-
+    def test_os_listdir(self):
+        """
+        Compare the result of listdir from os with ours
+        """
+        need_result = os.listdir('.')
+        result = listdir(path='.', full_path=False)
+        self.assertEqual(sorted(result), sorted(need_result))
