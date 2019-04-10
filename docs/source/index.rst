@@ -3,12 +3,12 @@
 
 
 Parameters description
---------------------
+-----------------------
 .. automodule:: ospa
     :members: listdir
 
 Usage samples
---------------------
+-----------------------
 
 All samples are with dummy_test_folder (you can find it in repo_) which structure is:
 
@@ -43,7 +43,6 @@ Get all files in directory (without dirs) with absolute path
 
 Filter dir items and return only files with full path:
 
-.. code-block:: python
 
    import ospa
    dummy_folder = '/path/to/dummy_test_folder/'
