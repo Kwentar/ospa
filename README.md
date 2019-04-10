@@ -4,26 +4,26 @@
 # ospa
 
  ### todo:
-- [ ] Функции под специфичные данные (изображения, тексты)
-- [ ] Функция выбора файлов по шаблону
-- [ ] Разобраться с ..
-- [ ] автоматизировать заливку новых версий
+- [ ] Sugar for specific data, like get_all_images
+- [ ] Template param for file names
+- [ ] Fix issue with ..
+- [ ] automate deploy on pypi
 
 ### for release:
-- [ ] залить на pypi
-- [ ] красивые плашки в репозитории (~~travis ci~~, ~~test coverhance~~, docs, pypi, ~~code quality~~)
+- [ ] deploy on pypi
+- [ ] github badges (~~travis ci~~, ~~test coverhance~~, docs, pypi, ~~code quality~~)
 
 ### done:
-- [x] listdir без параметров
-- [x] залить на test.pypi
-- [x] конвертнуть . и ..
-- [x] фильтры на файлы и директории
-- [x] папка для тестов
+- [x] listdir with all default parameters
+- [x] deploy on test.pypi
+- [x] convert . and .. in values
+- [x] only files parameter
+- [x] Test dummy folder
 - [x] unittests
 - [x] docstrings
-- [x] функция удаления путей, оставляет только имена
-- [x] добавить walk
-- [x] добавить фильтр по разрешению файлов в listdir
+- [x] Function for removing root path, return only files names
+- [x] Add walk (os.walk) parameter
+- [x] Add file extension filter in listdir function
 
 
 <p align="center"><a href="https://www.python.org/" alt="forthebadge made-with-python">
