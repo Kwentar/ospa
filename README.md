@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/Kwentar/ospa.svg?branch=master)](https://travis-ci.org/Kwentar/ospa) 
 [![Coverage Status](https://coveralls.io/repos/github/Kwentar/ospa/badge.svg?branch=master)](https://coveralls.io/github/Kwentar/ospa?branch=master) 
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kwentar/ospa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kwentar/ospa/context:python)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kwentar/ospa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kwentar/ospa/context:python) 
+[![Documentation Status](https://readthedocs.org/projects/ospa/badge/?version=latest)](https://ospa.readthedocs.io/en/latest/?badge=latest)
+
 # ospa
 
  ### todo:
@@ -10,7 +12,7 @@
 
 ### for release:
 - [ ] deploy on pypi
-- [ ] github badges (~~travis ci~~, ~~test coverhance~~, docs, pypi, ~~code quality~~)
+- [ ] github badges (~~travis ci~~, ~~test coverhance~~, ~~docs~~, pypi, ~~code quality~~)
 
 ### done:
 - [x] listdir with all default parameters
