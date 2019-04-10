@@ -1,8 +1,6 @@
 .. role:: python(code)
    :language: python
 
-.. contents::
-
 
 Parameters description
 --------------------
