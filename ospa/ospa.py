@@ -5,7 +5,8 @@ from . import OspaException
 
 def get_only_names(file_list: list) -> list:
     """
-    remove all from path except file
+    Remove all from path except file name
+
     :param file_list: list with files
     :return: list with file names only
     """
@@ -21,22 +22,16 @@ def listdir(path='.',
             extensions=None) -> list:
     """
     Generate items list of directory
+
     :param path: source path, can be '.' or contains one '..' which means one level top
-    :param full_path: if True return will return full path of files
-    :param only_files: if True return only files without dir (os.path.isfile is used)
-    :param walk: Generate the file names in a directory tree by walking the tree either
-    top-down or bottom-up, using os.walk() https://docs.python.org/3/library/os.html#os.walk
-    :param extensions: list, tuple or set with file extensions
+    :param full_path: if True, return full path of files.
+    :param only_files: if True, return only files without dir (os.path.isfile is used).
+    :param walk: Generate the file names in a directory tree by walking the tree top-down, using os.walk().
+    :param extensions: list, tuple or set with file extensions.
     :return: files or/and dirs in path
+
     """
-    if path == '.':
-        path = os.getcwd()
-    if '..' in path:
-        if path.count('..') != 1:
-            raise OspaException('Only one ".." can be in path')
-        current_path = os.getcwd()
-        previous_path = os.path.split(current_path)[0]
-        path = path.replace('..', previous_path)
+    path = os.path.abspath(path)
     if not only_files and walk:
         raise OspaException('The parameter only_files is False and walk is True, it is not correct. '
                             'Walk can be True only when only_files is True')

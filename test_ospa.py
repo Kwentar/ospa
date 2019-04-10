@@ -169,8 +169,6 @@ class TestOspaListDir(unittest.TestCase):
         with self.assertRaises(OspaException):
             listdir(dummy_folder, full_path=True, only_files=False, walk=True)
         with self.assertRaises(OspaException):
-            listdir('../../..')
-        with self.assertRaises(OspaException):
             listdir(extensions='wrong ext')
 
     def test_double_dot(self):

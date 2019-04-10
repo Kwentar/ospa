@@ -6,7 +6,6 @@
  ### todo:
 - [ ] Sugar for specific data, like get_all_images
 - [ ] Template param for file names
-- [ ] Fix issue with ..
 - [ ] automate deploy on pypi
 
 ### for release:
@@ -24,6 +23,7 @@
 - [x] Function for removing root path, return only files names
 - [x] Add walk (os.walk) parameter
 - [x] Add file extension filter in listdir function
+- [x] Fix issue with ..
 
 
 <p align="center"><a href="https://www.python.org/" alt="forthebadge made-with-python">
