@@ -11,10 +11,14 @@ def listdir(path='.',
     """
     Generate items list of directory
 
-    :param path: source path, can be '.' or contains one '..' which means one level top
+    :param path: source path
+    :type path: str
     :param full_path: if True, return full path of files.
+    :type full_path: bool
     :param only_files: if True, return only files without dir (os.path.isfile() is used).
+    :type only_files: bool
     :param walk: Generate the file names in a directory tree by walking the tree top-down, using os.walk().
+    :type walk: bool
     :param extensions: list, tuple or set with file extensions.
     :return: files or/and dirs in path
 
