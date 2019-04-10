@@ -1,4 +1,6 @@
 
+.. rubric::
+
 Welcome to OSpa's documentation!
 ================================
 
@@ -33,10 +35,16 @@ All samples are with dummy_test_folder (you can find it in repo_) which structur
         ├─meme2.jpg
         └-meme3.jpg
 
+
+.. contents::
+.. rubric::
+
+
+
 ____________________
 
-1. Get all files in directory (without dirs) with absolute path:
-
+1. Get all files in directory (without dirs) with absolute path.
+*****************************
 
 .. code-block:: python
 
@@ -56,7 +64,8 @@ The result is:
 
 ____________________
 
-2. Get all files in directory (without dirs) with relevant path:
+2. Get all files in directory (without dirs) with relevant path.
+**********************
 
 .. code-block:: python
 
@@ -76,7 +85,8 @@ The result is:
 
 ____________________
 
-3. Get all files and directories in directory with absolute path:
+3. Get all files and directories in directory with absolute path.
+****************************
 
 .. code-block:: python
 
@@ -94,10 +104,12 @@ The result is:
      '/path/to/dummy_test_folder/holy_grenade.png',
      '/path/to/dummy_test_folder/spam.jpg',
      '/path/to/dummy_test_folder/memes',
-     '/path/to/dummy_test_folder/txt_files]
+     '/path/to/dummy_test_folder/txt_files']
 ____________________
 
-4. The same as os.listdir_:
+
+4. The same as os.listdir_.
+***********************************
 
 .. code-block:: python
 
@@ -115,7 +127,35 @@ The result is:
      'holy_grenade.png',
      'spam.jpg',
      'memes',
-     'txt_files]
+     'txt_files']
+____________________
+
+
+5. Get all images.
+***********************************
+.. code-block:: python
+
+   import ospa
+   dummy_folder = '/path/to/dummy_test_folder/'
+   files = ospa.listdir(dummy_folder, only_files=True,
+                        walk=True, extensions=['png', 'jpg'])
+
+The result is:
+
+.. code-block:: python
+
+    ['/path/to/dummy_test_folder/antigravity.png',
+     '/path/to/dummy_test_folder/egg.png',
+     '/path/to/dummy_test_folder/holy_grenade.png',
+     '/path/to/dummy_test_folder/spam.jpg',
+     '/path/to/dummy_test_folder/memes/meme1.jpg',
+     '/path/to/dummy_test_folder/memes/meme2.png',
+     '/path/to/dummy_test_folder/memes/meme4.jpg',
+     '/path/to/dummy_test_folder/memes/meme4.png',
+     '/path/to/dummy_test_folder/memes/meme monty python/meme1.jpg',
+     '/path/to/dummy_test_folder/memes/meme monty python/meme2.jpg',
+     '/path/to/dummy_test_folder/memes/meme monty python/meme3.jpg']
+
 
 .. _repo: https://github.com/Kwentar/ospa
 .. _os.listdir: https://docs.python.org/3/library/os.html#os.listdir
