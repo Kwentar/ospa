@@ -1,5 +1,4 @@
 import os
-from typing import Iterable
 
 from . import OspaException
 
@@ -56,9 +55,11 @@ def listdir(path='.',
     if full_path and not walk:  # when walk we have full paths already
         file_list = [os.path.join(path, x) for x in file_list]
 
+    # Extensions filter
     if extensions:
         if isinstance(extensions, list) or isinstance(extensions, tuple) or isinstance(extensions, set):
-            file_list = [f for f in file_list if os.path.splitext(f)[-1][1:] in extensions]
+            extensions = list(map(lambda x: x.replace('.', '').lower(), extensions))
+            file_list = [f for f in file_list if os.path.splitext(f)[-1][1:].lower() in extensions]
         else:
             raise OspaException('The parameter extensions must be one of: list, set, tuple. ')
     return file_list
