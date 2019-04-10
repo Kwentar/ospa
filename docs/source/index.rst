@@ -1,13 +1,15 @@
+.. role:: python(code)
+   :language: python
 
-.. rubric::
+.. contents::
 
-Welcome to OSpa's documentation!
-================================
 
+Parameters description
+--------------------
 .. automodule:: ospa
     :members: listdir
 
-Usage samples:
+Usage samples
 --------------------
 
 All samples are with dummy_test_folder (you can find it in repo_) which structure is:
@@ -36,15 +38,12 @@ All samples are with dummy_test_folder (you can find it in repo_) which structur
         └-meme3.jpg
 
 
-.. contents::
-.. rubric::
-
-
-
 ____________________
 
-1. Get all files in directory (without dirs) with absolute path.
-*****************************
+Get all files in directory (without dirs) with absolute path
+************************************************************
+
+Filter dir items and return only files with full path:
 
 .. code-block:: python
 
@@ -64,8 +63,10 @@ The result is:
 
 ____________________
 
-2. Get all files in directory (without dirs) with relevant path.
-**********************
+Get all file names in directory (without dirs)
+************************************************
+
+Filter dir items and return only file names:
 
 .. code-block:: python
 
@@ -85,8 +86,10 @@ The result is:
 
 ____________________
 
-3. Get all files and directories in directory with absolute path.
-****************************
+Get all files and directories in directory with absolute path
+**************************************************************
+
+Return all dir items with absolute path:
 
 .. code-block:: python
 
@@ -108,8 +111,10 @@ The result is:
 ____________________
 
 
-4. The same as os.listdir_.
+The same as os.listdir_
 ***********************************
+
+The behaviour is exactly the same as :python:`os.listdir()`:
 
 .. code-block:: python
 
@@ -131,8 +136,12 @@ The result is:
 ____________________
 
 
-5. Get all images.
-***********************************
+Get all images in directory and its subdirectories
+***************************************************
+
+You can use :python:`extensions` for getting all specific files.
+:python:`Extensions` list can contains dot or not and not sensitive to register:
+
 .. code-block:: python
 
    import ospa
