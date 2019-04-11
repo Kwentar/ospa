@@ -234,6 +234,10 @@ class TestOspaListDir(unittest.TestCase):
         self.assertEqual(sorted(result), sorted(need_result))
         result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions=['.JPG', 'png'])
         self.assertEqual(sorted(result), sorted(need_result))
+        result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions=('.JPG', 'png'))
+        self.assertEqual(sorted(result), sorted(need_result))
+        result = listdir(dummy_folder, full_path=True, only_files=True, walk=True, extensions={'.JPG', 'png'})
+        self.assertEqual(sorted(result), sorted(need_result))
 
     def test_os_listdir(self):
         """
